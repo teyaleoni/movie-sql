@@ -123,12 +123,28 @@ LEFT JOIN `ratings` r ON r.movie_id = m.`id`
 WHERE `rating` = null;
 
 -- Get the average rating for a movie
+SELECT avg(rating)
+FROM `movies` m
+LEFT JOIN `ratings` r ON r.movie_id = m.id
+WHERE m.id = '3';
 
 -- Get the total ratings for a movie
+SELECT COUNT(rating)
+FROM `movies` m
+LEFT JOIN `ratings` r ON r.movie_id = m.id
+WHERE m.id = '4';
 
 -- Get the total movies for a genre
+SELECT COUNT(genres)
+FROM `movies` m
+LEFT JOIN `ratings` r ON r.movie_id = m.id
+WHERE `genres` LIKE '%comedy%';
 
 -- Get the average rating for a user
+SELECT avg(rating)
+FROM `movies` m
+LEFT JOIN `ratings` r ON r.movie_id = m.id
+WHERE r.user_id = '6';
 
 -- Find the user with the most ratings
 
